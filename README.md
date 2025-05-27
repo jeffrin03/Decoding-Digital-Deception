@@ -7,11 +7,11 @@ Prerequisite
 # Step 1 : 
 	Open "PROJECT" file .Open the project file in cmd or in terminal of VS code
 # Step 2: 
-    Create virtualenv  python -m venv venv 
+Create virtualenv: python -m venv venv 
 # Step 3:
-    Activate virtualenv venv\Scripts\activate
+    Activate virtualenv:  venv\Scripts\activate
 # Step 4:
-    Install requirements pip install -r requirements.txt 
+    Install requirements:  pip install -r requirements.txt 
 # Step 5:
     Copy Models 
 

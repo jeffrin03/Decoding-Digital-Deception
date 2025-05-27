@@ -1,0 +1,234 @@
+{% extends 'base.html' %}
+{%load static%}
+{%block content%}
+<section class="section no-padding" data-w-id="24b6bef1-9951-cb4f-c11a-ee737ba2dcab">
+    <div class="main-wp">
+     <div class="contact-us-main-wp">
+        <div class="bg" >
+            <div class="container">
+                <div class="row align-items-center justify-content-center">
+                    <div class="col-12 my-auto">
+                        <div class="logo text-center mb-3">
+                            <h1 class="cyber-heading">Deepfake Detection</h1>
+                          </div>
+                          
+                          <!-- Cyber Style -->
+                          <style>
+                            .cyber-heading {
+                              font-family: 'Algerian', serif;
+                              font-size: 2.8rem;
+                              font-weight: 700;
+                              color: #ffffff;
+                              text-shadow:
+                                2px 2px 4px rgba(255, 255, 255, 0.984),
+                                -2px -2px 6px rgba(255, 255, 255, 0.977);
+                              letter-spacing: 2px;
+                              text-transform: uppercase;
+                              text-align: center;
+                            }
+                          </style>
+                          
+                          <div class="upload-container">
+                            <div class="upload-title">Upload your video</div>
+                            <video width="100%" controls id="video-preview" style="display:none; margin-bottom: 20px;">
+                                <source id="video-source" src="" type="video/mp4">
+                                Your browser does not support HTML5 video.
+                            </video>
+                        
+                            <form method="POST" enctype="multipart/form-data" id="video-upload">
+                                {% csrf_token %}
+                        
+                                <!-- Custom Upload UI -->
+                                <div class="drop-area" onclick="document.getElementById('{{ form.upload_video_file.id_for_label }}').click();">
+                                    <span id="fileName">Drag and drop video here or click to select</span>
+                                </div>
+                                {{ form.upload_video_file }}
+                                <script>
+                                    document.addEventListener('DOMContentLoaded', () => {
+                                        const fileInput = document.getElementById('{{ form.upload_video_file.id_for_label }}');
+                                        const preview = document.getElementById('video-preview');
+                                        const videoSource = document.getElementById('video-source');
+                        
+                                        fileInput.style.display = 'none';
+                        
+                                        fileInput.addEventListener('change', function () {
+                                            if (this.files && this.files[0]) {
+                                                const fileURL = URL.createObjectURL(this.files[0]);
+                                                videoSource.src = fileURL;
+                                                preview.load();
+                                                preview.style.display = 'block';
+                                                document.getElementById("fileName").innerText = this.files[0].name;
+                                            }
+                                        });
+                                    });
+                                </script>
+                        
+                                {% if form.upload_video_file.errors %}
+                                    {% for each_error in form.upload_video_file.errors %}
+                                        <div class="alert">{{ each_error }}</div>
+                                    {% endfor %}
+                                {% endif %}
+                        
+                                <!-- Slider Section -->
+                                <div class="form-group mt-3">
+                                    <label for="{{ form.sequence_length.id_for_label }}" class="d-block" style="font-size: 18px; font-weight: bold; color: #333;">{{ form.sequence_length.label }}:</label>
+                                    <div class="d-flex align-items-center">
+                                        <span id="slider-value" class="ml-2" style="font-size: 16px; color: #6a5df2;"></span>
+                                        <input type="number" hidden id="{{ form.sequence_length.id_for_label }}" name="{{ form.sequence_length.name }}">
+                                    </div>
+                                    <div id="slider" class="mt-2" style="width: 100%;"></div>
+                                
+                                    {% if form.sequence_length.errors %}
+                                        {% for each_error in form.sequence_length.errors %}
+                                            <div class="alert">{{ each_error }}</div>
+                                        {% endfor %}
+                                    {% endif %}
+                                </div>
+                        
+                                <button type="submit" class="submit-btn mt-4">Upload</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            
+      <div class="contact-image-wp" id="w-node-_24b6bef1-9951-cb4f-c11a-ee737ba2dcba-7ba2dcab">
+       <div class="face-wp" data-w-id="24b6bef1-9951-cb4f-c11a-ee737ba2dcbb" style="opacity: 1; transform: translate3d(0%, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;">
+        <img alt="" class="contact-image-wp hidden-on-desktop" loading="lazy" sizes="(max-width: 880px) 100vw, 880px" src="https://cdn.prod.website-files.com/66cc2c3ac043852caae90bd2/6703b3fda824387e0216bda0_Group%201244830894.webp" srcset="https://cdn.prod.website-files.com/66cc2c3ac043852caae90bd2/6703b3fda824387e0216bda0_Group%201244830894-p-500.webp 500w, https://cdn.prod.website-files.com/66cc2c3ac043852caae90bd2/6703b3fda824387e0216bda0_Group%201244830894-p-800.webp 800w, https://cdn.prod.website-files.com/66cc2c3ac043852caae90bd2/6703b3fda824387e0216bda0_Group%201244830894.webp 880w">
+        <img alt="" class="contact-image-wp hidden-on--mobile" loading="lazy" sizes="(max-width: 1118px) 100vw, 1118px" src="https://cdn.prod.website-files.com/66cc2c3ac043852caae90bd2/66d5a00afb9f23ce902f817f_contact-us-img.webp" srcset="https://cdn.prod.website-files.com/66cc2c3ac043852caae90bd2/66d5a00afb9f23ce902f817f_contact-us-img-p-500.webp 500w, https://cdn.prod.website-files.com/66cc2c3ac043852caae90bd2/66d5a00afb9f23ce902f817f_contact-us-img-p-800.webp 800w, https://cdn.prod.website-files.com/66cc2c3ac043852caae90bd2/66d5a00afb9f23ce902f817f_contact-us-img-p-1080.webp 1080w, https://cdn.prod.website-files.com/66cc2c3ac043852caae90bd2/66d5a00afb9f23ce902f817f_contact-us-img.webp 1118w">
+       </div>
+       <div class="contact-mask-wp" data-w-id="24b6bef1-9951-cb4f-c11a-ee737ba2dcbd" style="opacity: 1; transform: translate3d(0%, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;">
+        <img alt="" class="contact-dot" loading="lazy" src="https://cdn.prod.website-files.com/66cc2c3ac043852caae90bd2/66d5aa4ee0c0b41b46586356_contact-mask.svg">
+       </div>
+       <div class="contact-dots" data-w-id="24b6bef1-9951-cb4f-c11a-ee737ba2dcbf" style="opacity: 1;">
+        <img alt="" class="contact-mask" loading="lazy" src="https://cdn.prod.website-files.com/66cc2c3ac043852caae90bd2/66d5aa450926b5edc65352ab_contact-dots.svg">
+       </div>
+      </div>
+     </div>
+    </div>
+    
+{%endblock%}
+{% block js_cripts %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+<script>
+    $(function () {
+        const sliderSequenceNumbers = [10, 20, 40, 60, 80, 100];
+        const $slider = $("#slider");
+        const $bubble = $("#slider-bubble");
+        const $valueDisplay = $("#slider-value");
+        const $input = $('#{{ form.sequence_length.id_for_label }}');
+
+        function updateBubble(ui) {
+            const val = sliderSequenceNumbers[ui.value];
+            const handle = $slider.find(".ui-slider-handle");
+            const sliderOffset = $slider.offset().left;
+            const handleOffset = handle.offset().left;
+            const bubbleWidth = $bubble.outerWidth();
+            const left = handle.position().left + handle.width() / 2 - bubbleWidth / 2;
+            $bubble.css('left', `${left}px`);
+            $bubble.text(val);
+            $valueDisplay.text(val);
+            $input.val(val);
+        }
+
+        $slider.slider({
+            value: 1,
+            min: 0,
+            max: sliderSequenceNumbers.length - 1,
+            create: function (event, ui) {
+                updateBubble({ value: $slider.slider("value") });
+            },
+            slide: function (event, ui) {
+                updateBubble(ui);
+            }
+        });
+
+        // Initial value
+        updateBubble({ value: $slider.slider("value") });
+    });
+</script>
+<style>
+    
+    .upload-container {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        padding: 30px 25px;
+        text-align: center;
+        max-width: 450px;
+        margin: 40px auto;
+    }
+
+    .upload-title {
+        color: #333;
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .upload-subtitle {
+        font-size: 16px;
+        color: #666;
+        margin-bottom: 20px;
+    }
+
+    .drop-area {
+        border: 2px dashed #6a5df2;
+        border-radius: 10px;
+        padding: 40px 20px;
+        margin-bottom: 20px;
+        color: #6a5df2;
+        font-size: 18px;
+        cursor: pointer;
+    }
+
+    .submit-btn {
+        background-color: #6a5df2;
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s;
+        width: 100%;
+    }
+
+    .submit-btn:hover {
+        background-color: #5a4bdf;
+    }
+
+    .alert {
+        font-size: 14px;
+        color: red;
+        margin-top: 10px;
+    }
+
+    #slider {
+    background-color: #e0e0e0;
+    height: 6px;
+    border-radius: 5px;
+}
+
+#slider-value {
+    font-size: 18px;
+    color: #6a5df2;
+}
+label {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    display: block;
+    margin-bottom: 5px;
+}
+
+</style>
+{% endblock %}
+    <div class="bg-wp contact-us">
+     <img alt="" class="bg-image" loading="lazy" src="https://cdn.prod.website-files.com/66cc2c3ac043852caae90bd2/66d82bd6caeacb7fc5311646_contact-us-bg.svg">
+    </div>
+    <img alt="" class="contact-overlay hidden-on-desktop" loading="lazy" src="https://cdn.prod.website-files.com/66cc2c3ac043852caae90bd2/6703b358f5f4c582c42b080d_cta.svg">
+  
+</section>
